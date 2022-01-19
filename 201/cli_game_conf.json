@@ -1,0 +1,9 @@
+{
+    "name": "dm",
+    "lives": 3,
+    "inventory": {
+        "sword": 0,
+        "shield": 1,
+        "helmet": 1
+    }
+}

@@ -51,30 +51,38 @@ except:
 name = objects['name']
 lives = objects['lives']
 
+#check for returning player. Use name stored in json to verify
 if name:
     name_ask = input(f'Hi. Is your name: {name}? anwer with Yes or No.')
     if name_ask.lower() == 'yes':
-        print(f'Welcome back {name}. Let\'s continue the game')
+        print(f"Welcome back {name}. Let's continue the game")
     else:
-        objects['name'] = input('What is your name? ')
+        name = input('What is your name?\n')
+        print(f'Wecome {name} to Command Line Game!!')
 else:
-    objects['name'] = input('What is your name? ')
+    name = input('What is your name?\n')
+    print(f'Wecome {name} to Command Line Game!!')
          
-print(objects)
+objects['name'] = name
 room = ''
+
+#create random need for a partner to help on different tasks
 partner_needed = random.choice([True, False])
-print(f'Wecome {name} to Command Line Game!!')
 
 def pick_objects(weapon):
+    """Function to 
+
+    Args:
+        weapon ([str]): [description]
+    """
     look_arround = input('Looking arround? Chose yes or no: ')
     if look_arround.lower() == 'yes':
-        pick_up_sword = input(f'You find a {weapon}. Do you want to take it? Chose YES or NO: ')
-        if pick_up_sword.lower() == 'yes': 
+        weapon_found = input(f'You find a {weapon}. Do you want to take it? Chose YES or NO: ')
+        if weapon_found.lower() == 'yes': 
             objects['inventory'][weapon] += 1   
             print(F'{weapon} is taken')
 
 def fight_opponent(opponent, weapon, partner = True):
-    # global lives
     print(f'Here is a {opponent}')
     fight_opponent = input(f'Do you wish to fight the {opponent}? Chose YES or NO: ')
     if fight_opponent.lower() == 'yes':
